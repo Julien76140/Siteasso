@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+{% for contenuAnimal in contenuAnimal %}
+
+
+{% if contenuAnimal %}
+<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+  <div class="card-header">{{contenuAnimal.titre}}</div>
+  <div class="card-body">
+    <p class="card-text">{{contenuAnimal.contenu}}</p>
+  </div>
+</div>*
+ {% endif %} 
+
+ {% endfor %}
+
+
+
+{% endblock %}

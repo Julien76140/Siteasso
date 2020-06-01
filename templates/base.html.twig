@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+<link rel="icon" type="image/png" href="https://findicons.com/files/icons/2796/metro_uinvert_dock/128/twitter_new.png"/>
+
+        <script>
+  src="https://code.jquery.com/jquery-3.5.0.slim.js"
+  integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE="
+  crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e3ccb97707.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        {% block stylesheets %}
+        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+                <link href="{{ asset('css/footer.css') }}" type="text/css" rel="stylesheet">
+                 <link href="{{ asset('css/home.css') }}" type="text/css" rel="stylesheet">
+
+        {% endblock %}
+    </head>
+    <body>
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/"><img src="https://i.ibb.co/VB3pYN8/logo.png" width="40px" height="40px"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path('home')}}">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{path('animaux')}}">Nos Animaux</a>
+      </li>
+   <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <li class="nav-item">
+        <a class="nav-link" href="">Nos activités à la ferme</a>
+      </li>  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+      <a class="dropdown-item" href="{{path('accueil')}}">Nos différents Accueil</a>
+      <a class="dropdown-item" href="{{path('anniversaire')}}">Anniversaire à la ferme</a>
+            <a class="dropdown-item" href="{{path('spectacle')}}">Spectacles</a>
+                  <a class="dropdown-item" href="{{path('minifermeitinerante')}}">Mini ferme itinérante</a>
+                        <a class="dropdown-item" href="{{path('tarif')}}">Toutes Nos Prestations et Tarifs</a>
+
+
+
+    </div>
+  </div>
+</div>
+      <li class="nav-item">
+        <a class="nav-link" href="{{path('localisation')}}">Nous Trouver</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="{{path('propos')}}">À Propos</a>
+      </li>
+      {% if not app.user %}
+             <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+      </li>
+      {% else %}
+       <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
+      </li>
+         <li class="nav-item">
+        <a class="nav-link" href="{{ path('creationarticle') }}">Gérer le site</a>
+      </li>
+      {% endif %}
+      
+    </ul>
+  </div>
+</nav>
+
+    <div class="container-fluid">
+
+
+<div class="row">
+
+        {% block body %}
+
+        
+        {% endblock %}
+        </div>
+</div>
+
+<div class="footer">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-3">
+
+
+                <h2>NOUS CONTACTER</h2>
+                <section class="contact">
+               <a href="mailto:aupredubois@outlook.com">CONTACT</a><br>
+</section>
+                
+            </div>
+            <div class="col-lg-3">
+
+                <h2>NOS ENGAGEMENTS</h2>
+                <section class="engagement">
+                    <a href="">Mentions légales</a>
+
+                </section>
+
+            </div>
+            <div class="col-lg-3">
+                <h2>RETROUVEZ NOUS AUSSI SUR : </h2>
+                <section class="reseau">
+                    <a href="https://fr-fr.facebook.com/aupredubois/">Facebook</a><br>
+                    <a href="https://www.instagram.com/aupredubois/?hl=fr">Instagram</a>
+                </section>
+
+            </div>
+            <div class="col-lg-3">
+                <h2>EN SAVOIR PLUS : </h2>
+                <section class="propos">
+                    <a href="{{path('propos')}}">À Propos</a>
+
+                </section>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-lg-12">
+                <p>© 2020 www.aupredubois.fr </p><p>
+
+
+            </p></div>
+</div>
+
+      {% block javascripts %}
+
+<script src="{{ asset('js/app.js') }}">
+
+</script>
+{% endblock %}
+    </body>
+</html>

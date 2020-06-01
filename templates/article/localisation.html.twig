@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+{% for contenuNousTrouver in contenuNousTrouver %}
+
+
+
+<div class="col-lg-6">
+<div class="jumbotron">
+  {% if contenuNousTrouver.titre != NULL %}
+
+  <h1 class="display-3" style="color:#FFC314"  >{{ contenuNousTrouver.titre}}</h1>
+  {% endif %}
+
+  {% if contenuNousTrouver.image != NULL %}
+  <img src="{{ contenuNousTrouver.image}}" width="100%" height="350px" style="border:2px solid #FFC314; ">
+  {% endif %}
+  {% if contenuNousTrouver.contenu != NULL %}
+
+
+  <p class="lead">{{ contenuNousTrouver.contenu}}</p>
+    {% endif %}
+
+      {% if contenuNousTrouver.lien != NULL %}
+
+  <button type="button" class="btn btn-warning"><a href="{{ contenuNousTrouver.lien}}" style="color:white;text-decoration:none;">{{ contenuNousTrouver.nomlien}}</a></button>
+  {% endif %}
+
+  {% if contenuNousTrouver.lienmap != NULL %}
+
+<iframe src="{{ contenuNousTrouver.lienmap }}" width="50%" height="350px" frameborder="0" style="border:0;" allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>  {% endif %}
+     {% if contenuNousTrouver %}
+        {% if app.user %}
+           <button type="button" class="btn btn-info"><a href="{{ path('edit')}}" style="color:white;text-decoration:none;">Modifier</a></button>
+         {% endif %} 
+         {% endif %} 
+
+  <hr class="my-4">
+</div>
+</div>
+{% endfor %}
+{% endblock %}

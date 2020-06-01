@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+{% for contenuDiffAccueil in contenuDiffAccueil %}
+
+
+
+<div class="col-lg-4">
+<div class="jumbotron">
+  {% if contenuDiffAccueil.titre != NULL %}
+
+  <h1 class="display-3" style="color:#FFC314;font-size:2em;"  >{{ contenuDiffAccueil.titre}}</h1>
+  {% endif %}
+
+  {% if contenuDiffAccueil.image != NULL %}
+  <img src="{{ contenuDiffAccueil.image}}" width="100%" height="350px" style="border:2px solid #FFC314; ">
+  {% endif %}
+  {% if contenuDiffAccueil.contenu != NULL %}
+
+
+  <p class="lead">{{ contenuDiffAccueil.contenu}}</p>
+    {% endif %}
+
+      {% if contenuDiffAccueil.lien != NULL %}
+
+  <button type="button" class="btn btn-warning"><a href="{{ contenuDiffAccueil.lien}}" style="color:white;text-decoration:none;">{{ contenuDiffAccueil.nomlien}}</a></button>
+  {% endif %}
+     {% if contenuDiffAccueil %}
+        {% if app.user %}
+           <button type="button" class="btn btn-info"><a href="{{ path('edit')}}" style="color:white;text-decoration:none;">Modifier</a></button>
+         {% endif %} 
+         {% endif %} 
+
+  <hr class="my-4">
+</div>
+</div>
+{% endfor %}
+{% endblock %}

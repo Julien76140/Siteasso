@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+
+{% form_theme formArticle  'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<div class="formulaire">
+{{form_start(formArticle)}}
+{{form_row(formArticle.pageName)}}
+{{form_row(formArticle.category)}}
+{{form_row(formArticle.titre,{'attr':{'placeholder':'Titre de l\'article'}})}}
+{{form_row(formArticle.contenu,{'attr':{'placeholder':'Contenu de l\'article'}})}}
+{{form_row(formArticle.lien,{'attr':{'placeholder':'Lien source (optionel)'}})}}
+{{form_row(formArticle.nomlien,{'attr':{'placeholder':'Nom De la source'}})}}
+{{form_row(formArticle.lienmap,{'attr':{'placeholder':'Lien Google Map (page Nous Trouver)'}})}}
+{{form_row(formArticle.image,{'attr':{'placeholder':'Lien image'}})}}
+
+<p style="color:red;">{{erreur}}</p>
+
+{% if not erreur %}
+
+<p  style="color:green;">{{sucess}}</p>
+{% endif %}
+
+<button type="submit" class="btn btn-success">Enregistrer </button>
+
+
+{{form_end(formArticle)}}
+</div>
+
+{% endblock %}

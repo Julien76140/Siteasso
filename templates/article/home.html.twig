@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% for article in contenuAccueil %}
+
+
+
+<div class="col-lg-6">
+<div class="jumbotron">
+  {% if article.titre != NULL %}
+
+  <h1 class="display-3" style="color:#FFC314"  >{{ article.titre}}</h1>
+  {% endif %}
+
+  {% if article.image != NULL %}
+  <img src="{{ article.image}}" width="100%" height="350px" style="border:2px solid #FFC314; ">
+  {% endif %}
+  {% if article.contenu != NULL %}
+
+
+  <p class="lead">{{ article.contenu}}</p>
+    {% endif %}
+
+      {% if article.lien != NULL %}
+
+  <button type="button" class="btn btn-warning"><a href="{{ article.lien}}" style="color:white;text-decoration:none;">{{ article.nomlien}}</a></button>
+  {% endif %}
+
+  
+     {% if article %}
+        {% if app.user %}
+           <button type="button" class="btn btn-info"><a href="{{ path('edit')}}" style="color:white;text-decoration:none;">Modifier</a></button>
+         {% endif %} 
+         {% endif %} 
+
+  <hr class="my-4">
+</div>
+</div>
+{% endfor %}
+{% endblock %}

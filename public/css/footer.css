@@ -1,0 +1,20 @@
+.footer {
+    background-color: #02B875 !important;
+    color: white;
+    min-height: 100% !important;
+    width: 100%;
+    border-top: 3px solid black;
+    padding: 20px;
+}
+
+.footer h2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    font-size: 1.5em;
+    color: white;
+}
+
+.footer a {
+    color: white;
+}
